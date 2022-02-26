@@ -16,11 +16,24 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 2
         a.CumpliAnios() -> debe devolver 3
     '''
-    #Tu código aca:
-    def __init__(self):
-        self.Edad = 0
-        self.Especie = ''
-        self.Color = ''
+    #Tu código aca:   
+    class ClaseAnimal:
+        edad = 0
+        especie = ''
+        color = ''
+    
+        def __init__(self,especie,color):
+            self.edad = 0
+            self.especie = especie
+            self.color = color
+    
+        def CumplirAnios(self):
+            self.edad += 1
+            return self.edad
+    a = ClaseAnimal(especie,color)
+    return a
 
-    def CumplirAnios(self,especie, color):
-        Edad = Edad +1
+
+
+
+
