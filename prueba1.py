@@ -17,7 +17,7 @@ def ListaEnteros(inicio, tamanio):
 
 ListaEnteros(10,5)
 
-
+.
 # def ListaEnteros(inicio, tamanio):
 #     lista = []
 #     for i in range(inicio,tamanio+inicio):
