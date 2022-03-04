@@ -37,5 +37,11 @@ def factorizar_numero(numero):
         return resultado
     
 
-print(factorizar_numero(13))
 print(factorizar_numero(12))
+print(factorizar_numero(13))
+print(factorizar_numero(14))
+print(factorizar_numero(5))
+print(factorizar_numero(1428))
+print(factorizar_numero('hola'))
+print(factorizar_numero(0))
+print(factorizar_numero(-8))

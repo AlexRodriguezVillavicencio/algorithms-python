@@ -23,3 +23,8 @@ def Factorial(numero):
 
         
 print(Factorial(-2)) 
+print(Factorial(5)) 
+print(Factorial(1)) 
+print(Factorial(0)) 
+print(Factorial(10)) 
+print(Factorial('string')) 

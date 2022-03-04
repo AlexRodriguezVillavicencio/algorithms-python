@@ -33,6 +33,17 @@ def ClaseAnimal(especie, color):
     a = ClaseAnimal(especie,color)
     return a
 
+a = ClaseAnimal('perro','negro')
+print(a.CumplirAnios())
+print(a.CumplirAnios())
+print(a.CumplirAnios())
+
+
+a = ClaseAnimal('ballena','azul')
+for i in range(0,10):
+    print(a.CumplirAnios())
+
+
 
 
 

@@ -26,11 +26,14 @@ def NumeroBinario(numero):
         new_arreglo = arreglo[:]
         for i in reversed(new_arreglo):
             binario.append(i)
-        resultado = int("".join([str(i) for i in binario]))
+        resultado = int("".join(str(i) for i in binario))
 
     
     return resultado
 
+print(NumeroBinario(12))
+print(NumeroBinario(2))
+print(NumeroBinario(14))
 print(NumeroBinario(5))
 print(NumeroBinario(255))
 print(NumeroBinario(-10))

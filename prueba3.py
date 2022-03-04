@@ -33,3 +33,6 @@ def NumeroCapicua(numero):
 print(NumeroCapicua(23232)) 
 print(NumeroCapicua(132)) 
 print(NumeroCapicua('hola')) 
+print(NumeroCapicua(3333)) 
+print(NumeroCapicua(92529))
+print(NumeroCapicua('92529'))

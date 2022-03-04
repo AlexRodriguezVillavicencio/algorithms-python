@@ -9,27 +9,34 @@ def ProximoPrimo(actual_primo):
         ProximoPrimo(8) debe retornar nulo
     '''
     #Tu código aca:
-    def cont(actual_primo):
-        n=2
-        contador=0
-        while (n <= actual_primo):
-            if actual_primo%n == 0:
-                contador += 1
-            n+=1
-        return contador           
-    if cont(actual_primo) > 1:
-        return None
+    if(isinstance(actual_primo,int)):
+        def cont(actual_primo):
+            n=2
+            contador=0
+            while (n <= actual_primo):
+                if actual_primo%n == 0:
+                    contador += 1
+                n+=1
+            return contador           
+        if cont(actual_primo) > 1:
+            resultado = None
+        else:
+            proximo = True
+            while proximo:         
+                actual_primo +=1
+                if cont(actual_primo) > 1:
+                    proximo = True
+                else:
+                    proximo = False
+                    resultado = actual_primo
+        return resultado
     else:
-        print('si es primo')
-        proximo = True
-        while proximo:         
-            actual_primo +=1
-            if cont(actual_primo) > 1:
-                # print(actual_primo)
-                proximo = True
-            else:
-                # print(actual_primo)
-                proximo = False
-                return actual_primo
+        return None
 
 print(ProximoPrimo(7))
+print(ProximoPrimo(8))
+print(ProximoPrimo(5))
+print(ProximoPrimo(61))
+print(ProximoPrimo(139))
+print(ProximoPrimo(200))
+print(ProximoPrimo('string'))

@@ -12,6 +12,11 @@ def DividirDosNumeros(dividendo, divisor):
     #Tu código aca:
     parte_entera = int(dividendo/divisor)
     resto= dividendo%divisor
-    return print(parte_entera, resto)
+    return parte_entera, resto
 
-DividirDosNumeros(10,4)
+print(DividirDosNumeros(10,3))
+print(DividirDosNumeros(5,4))
+print(DividirDosNumeros(10,2))
+print(DividirDosNumeros(10,5))
+print(DividirDosNumeros(17,3))
+print(DividirDosNumeros(13,3))
