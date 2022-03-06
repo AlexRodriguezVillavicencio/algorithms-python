@@ -6,7 +6,7 @@ def heron(a, b, c):
     return (p * (p - a) * (p - b) * (p - c)) ** 0.5     #formula de Herón
 
 def campoTriangulo(a, b, c):
-    if not esUnTriangulo(a, b, c):
+    if not esUnTriangulo(a, b, c): 
         return None
     return heron(a, b, c)
 
