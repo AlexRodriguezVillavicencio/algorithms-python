@@ -91,8 +91,8 @@
 
 
 
+'''-----------Naturaleza multidimensional de las listas: aplicaciones avanzadas ---------------------------------'''
 
-# Naturaleza multidimensional de las listas: aplicaciones avanzadas
 # Profundicemos en la naturaleza multidimensional de las listas. Para encontrar cualquier elemento de una lista 
 # bidimensional, debes usar dos coordenadas:
 
@@ -163,9 +163,8 @@
 
 
 
+'''------------------------- Arreglos tridimensionales ----------------------------------'''
 
-
-# Arreglos tridimensionales
 # Python no limita la profundidad de la inclusión lista en lista. Aquí puedes ver un ejemplo de un arreglo 
 # tridimensional:
 # Imagina un hotel. Es un hotel enorme que consta de tres edificios, de 15 pisos cada uno. Hay 20 habitaciones 
@@ -197,6 +196,11 @@
 # habitaciones disponibles.
 
 
+
+
+'''-------------------------tuplas, listas y diccionarios ----------------------------------'''
+
+
 # #metodo zip() para relacionar dos listas o tuplas
 # l1 = [2,4,1]
 # l2 = [6,7,8]
@@ -212,3 +216,48 @@
 # print(l1)
 # l1.sort(reverse = True)
 # print(l1)
+
+
+# #metodo keys() para recorrer un diccionario
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# for key in dict.keys():
+#     print(key, "->", dict[key])
+
+
+# #metodo sorted() para odenar
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# for key in sorted(dict.keys()):
+#     print(key, "->", dict[key])
+
+
+# #metodo item() para recorrer diccionarios (otra manera)
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# for spanish, french in dict.items():
+#     print(spanish, "->", french)
+
+# #metodo values() para regresar solo los valores de un diccionario
+# Como el diccionario no es capaz de automáticamente encontrar la clave de un 
+# valor dado, el rol de este método es algo limitado.
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# for french in dict.values():
+#     print(french)
+
+
+
+# #dos maneras de insertar valores a un diccionario:
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# dict['cisne'] = 'cygne'
+# print(dict)
+# dict.update({"pato" : "canard"})
+# print(dict)
+
+
+# #eliminando una clave de un diccionario
+# dict = {"gato" : "chat", "perro" : "chien", "caballo" : "cheval"}
+# del dict['perro']
+# print(dict)
+# dict.popitem()
+# print(dict)
+
+
+
