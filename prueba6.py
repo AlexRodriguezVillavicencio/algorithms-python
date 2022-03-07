@@ -18,7 +18,6 @@ def factorizar_numero(numero):
         exponente = [] 
         comun = []
 
-        i = 1
         for i in range(1, numero+1):      
           if i==1: 
               i=2                         
