@@ -260,4 +260,322 @@
 # print(dict)
 
 
+# #desempaquetando una tupla
+# tup = 1, 2, 3
+# a, b, c = tup
+# print(a * b * c)
+
+
+# #metodo count() para contar el numero de veces que se repite un elemento de una tupla 
+# tup = 1, 2, 3, 2, 4, 5, 6, 2, 7, 2, 8, 9
+# duplicates = tup.count(2)
+# print(duplicates) 
+
+
+# #unir varios diccionarios para crear uno nuevo:
+# d1 = {'Adam Smith':'A', 'Judy Paxton':'B+'}
+# d2 = {'Mary Louis':'A', 'Patrick White':'C'}
+# d4 = {'Mry Louis':'Ad', 'Packite':'Cs'}
+# d3 = {}
+# for elemento in (d1, d2, d4):
+#     d3.update(elemento)
+# print(d3)
+
+
+# # tupla a diccionario: dict() , a tupla: tuple(), a lista: list()
+# colores = [["verde", "#008000"], ("azul", "#0000FF")]
+# colDict = dict(colores)
+# print(colDict)
+
+'''-------------------------explicación del juego de michi ----------------------------------'''
+# from random import randrange
+
+# def DisplayBoard(board):
+# 	print("+-------" * 3,"+",sep="")
+# 	for row in range(3):
+# 		print("|       " * 3,"|",sep="")
+# 		for col in range(3):
+# 			print("|   " + str(board[row][col]) + "   ",end="")
+# 		print("|")
+# 		print("|       " * 3,"|",sep="")
+# 		print("+-------" * 3,"+",sep="")
+
+# def EnterMove(board):
+# 	ok = False	# suposición falsa - lo necesitamos para entrar en el bucle
+# 	while not ok:
+# 		move = input("Ingresa tu movimiento: ") 
+# 		ok = len(move) == 1 and move >= '1' and move <= '9' # ¿es valido lo que ingreso el usuario?
+# 		if not ok:
+# 			print("Movimiento erróneo, ingrésalo nuevamente") # no, no lo es. Ingrésalo nuevamente.
+# 			continue
+# 		move = int(move) - 1 	# numero de la celda, del 0 al 8
+# 		row = move // 3 	# fila de la celda
+# 		col = move % 3		# columna de la celda
+# 		sign = board[row][col]	# marca el cuadro elegido
+# 		ok = sign not in ['O','X'] 
+# 		if not ok:	# esta ocupado, ingresa una posición nuevamente
+# 			print("¡Campo ocupado, ingresa nuevamente!")
+# 			continue
+# 	board[row][col] = 'O' 	# colocar '0' al cuadro seleccionado
+
+# def MakeListOfFreeFields(board):
+# 	free = []	# la lista esta vacía inicialmente
+# 	for row in range(3): # itera a través de las filas
+# 		for col in range(3): # itera a través de las columnas
+# 			if board[row][col] not in ['O','X']: # ¿Está la celda libre?
+# 				free.append((row,col)) # si, agrega una nueva tupla a la lista
+# 	return free
+
+
+# def VictoryFor(board,sgn):
+# 	if sgn == "X":	# ¿Estamos buscando X?
+# 		who = 'yo'	# Si, es la maquina
+# 	elif sgn == "O": # ... o estamos buscando O?
+# 		who = 'tu'	# Si, es el usuario
+# 	else:
+# 		who = None	# ¡No debemos de caer aquí!
+# 	cross1 = cross2 = True  # para las diagonales
+# 	for rc in range(3):
+# 		if board[rc][0] == sgn and board[rc][1] == sgn and board[rc][2] == sgn:	# revisar filas rc
+# 			return who
+# 		if board[0][rc] == sgn and board[1][rc] == sgn and board[2][rc] == sgn: # revisar columnas rc
+# 			return who
+# 		if board[rc][rc] != sgn: # revisar la primer diagonal
+# 			cross1 = False
+# 		if board[2 - rc][2 - rc] != sgn: # revisar la segunda diagonal
+# 			cross2 = False
+# 	if cross1 or cross2:
+# 		return who
+# 	return None
+
+# def DrawMove(board):
+# 	free = MakeListOfFreeFields(board) # hace una lista de los cuadros vacios o libres
+# 	cnt = len(free)
+# 	if cnt > 0:	# si la lista no esta vacía, elegir un lugar para 'X' y colocarla 
+# 		this = randrange(cnt)
+# 		row, col = free[this]
+# 		board[row][col] = 'X'
+
+# board = [ [3 * j + i + 1 for i in range(3)] for j in range(3) ] # crear un tablero vacío
+# board[1][1] = 'X' # colocar la primer 'X' en el centro
+# free = MakeListOfFreeFields(board)
+# humanturn = True # ¿De quien es turno ahora?
+# while len(free):
+# 	DisplayBoard(board)
+# 	if humanturn:
+# 		EnterMove(board)
+# 		victor = VictoryFor(board,'O')
+# 	else:	
+# 		DrawMove(board)
+# 		victor = VictoryFor(board,'X')
+# 	if victor != None:
+# 		break
+# 	humanturn = not humanturn		
+# 	free = MakeListOfFreeFields(board)
+
+# DisplayBoard(board)
+# if victor == 'tu':
+# 	print("¡Has ganado!")
+# elif victor == 'yo':
+# 	print("¡He ganado!")
+# else:
+# 	print("¡Empate!")
+
+
+
+# lst = [[x for x in range(3)] for y in range(3)]
+# print(lst)
+
+'''-------------------------conociendo nuestro sistema ----------------------------------'''
+# #modelo code/ python/ os/ hardware
+# from platform import platform, machine, processor,system ,version ,python_implementation, python_version_tuple
+# print(platform())
+# print(machine())
+# print(processor())
+# print(system())
+# print(version())
+# print(python_implementation())
+# print(python_version_tuple())
+
+
+
+
+#jugando con el ctrl c
+# from time import sleep
+# seconds = 0
+# while True:
+#     try:
+#         print(seconds)
+#         seconds += 1
+#         sleep(1)
+#     except KeyboardInterrupt:
+#         print("¡No hagas eso!")
+
+
+
+
+# # como abusar del diccionario
+# # y cómo lidiar con ello
+
+# dict = { 'a' : 'b', 'b' : 'c', 'c' : 'd' }
+# ch = 'a'
+# try:
+#     while True:
+#         ch = dict[ch]
+#         print(ch)
+# except KeyError:
+#     print('No existe tal clave:', ch)
+
+
+
+
+# # Demostrando la función ord ()
+
+# ch1 = 'a' 
+# ch2 = ' ' # espacio
+
+# print(ord(ch1))
+# print(ord(ch2))
+
+
+'''-------------------------operaciones con cadenas ----------------------------------'''
+# https://docs.python.org/3.4/library/stdtypes.html#string-methods
+# # Demostrando la función ord ()
+# ch1 = 'a' 
+# ch2 = ' ' # espacio
+# print(ord(ch1))
+# print(ord(ch2))
+
+
+# # Demostrando la función chr()
+# print(chr(97))
+# print(chr(945))
+
+
+
+# # Rodajas o rebanadas
+# alpha = "abdefg"
+
+# print(alpha[1:3])
+# print(alpha[3:])
+# print(alpha[:3])
+# print(alpha[3:-2])
+# print(alpha[-3:4])
+# print(alpha[::2])
+# print(alpha[1::2])
+
+
+# # Demonstrando max() y min()
+# t = 'Los Caballeros Que Dicen "¡Ni!"'
+# print('[' + max(t) + ']')
+# print('[' + min(t) + ']')
+
+
+# # Demonstrando el método index()
+# print("aAbByYzZaA".index("b"))
+# print("aAbByYzZaA".index("Z"))
+
+
+# # Demostrando la función list()
+# print(list("abcabc"))
+
+# # Demostrando el método count()
+# print("abcabc".count("b"))
+
+# # Demostración del método capitalize()
+# print('aBcD'.capitalize())
+
+# # Demostración del método center()
+# print('[' + 'alfa'.center(10) + ']')
+# print('[' + 'gamma'.center(20, '*') + ']')
+
+# # Demostración del método endswith()
+# if "epsilon@gmail.com".endswith("@gmail.com"):
+#     print("si")
+# else:
+#     print("no")
+
+
+# # Demostración del método find()
+
+# txt = """the ordinary lorem ipsum
+# text has been used in typesetting since the 1960s 
+# or earlier, when it was popularized by advertisements 
+# for Letraset transfer sheets. It was introduced to 
+# the Information Age in the mid-1980s by the Aldus Corporation, 
+# which employed it in graphics and word-processing templates
+# for its desktop publishing program PageMaker (from Wikipedia)"""
+
+# fnd = txt.find('the')
+# while fnd != -1:
+#     print(fnd)
+#     fnd = txt.find('the', fnd + 1)
+
+
+
+# # Demostración del método the isalnum()
+# print('lambda30'.isalnum())
+# print('lambda'.isalnum())
+# print('30'.isalnum())
+# print('@'.isalnum())
+# print('lambda_30'.isalnum())
+# print(''.isalnum())
+
+# # Ejemplo 1: Demostración del método isapha()
+# print("Moooo".isalpha())
+# print('Mu40'.isalpha())
+
+# # Ejemplo 2: Demostración del método isdigit()
+    
+# print('2018'.isdigit())
+# print("Año2019".isdigit())
+
+# # Ejemplo 1: Demostración del método islower()
+# print("Moooo".islower())
+# print('moooo'.islower())
+
+# # Ejemplo 2: Demostración del método isspace()
+# print(' \n '.isspace())
+# print(" ".isspace())
+# print("mooo mooo mooo".isspace())
+
+# # Ejemplo 3: Demostración del método isupper() 
+# print("Moooo".isupper())
+# print('moooo'.isupper())
+# print('MOOOO'.isupper())
+
+# # Demostración del método join()
+# print(",".join(["omicron", "pi", "rho"]))
+
+# # Demostración del método lower()
+# print("SiGmA=60".lower())
+
+
+# # Demostración del método the lstrip()
+# print(" www.cisco.com".lstrip("w."))
+# print("www.cisco.com".lstrip("w."))
+# print("cisco.com".lstrip(".com"))
+
+
+# # Demostración del método replace()
+# print("www.netacad.com".replace("netacad.com", "pythoninstitute.org"))
+# print("This is it!".replace("is", "are"))
+# print("Apple juice".replace("juice", ""))
+
+
+# # Demostración del método split()
+# print("phi       chi\npsi".split())
+
+# # Demostración del método swapcase()
+# print("Yo sé que no sé nada.".swapcase())
+
+# print()
+
+# # Demostración del método title()
+# print("Yo sé que no sé nada. Parte 1.".title())
+
+# # Demostración del método upper()
+# print("Yo sé que no sé nada. Parte 2.".upper())
+
+
 
