@@ -206,13 +206,13 @@ def VictoryFor(board, sign):
 # la función analiza el estatus del tablero para verificar si
 # el jugador que utiliza las 'O's o las 'X's ha ganado el juego
 #
-    return
+    if board[0][0] == board[0][1] == board [0][2] == "X":
+        return
 
-def DrawMove(board):
+# def DrawMove(board):
 #
 # la función dibuja el movimiento de la maquina y actualiza el tablero
 #
-    return
 
 # salir = 'no'
 # while(salir == 'no'):
