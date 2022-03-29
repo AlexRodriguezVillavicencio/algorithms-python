@@ -775,47 +775,47 @@ solo las clases tienen este atributo - los objetos no.'''
 # print(Sub.__base__)
 
 
-def NumeroBinario(numero):
+# def NumeroBinario(numero):
 
-    if not(isinstance(numero,int)) or numero <= -1:
-        return None
-    if numero == 0:
-        return 0
-    else:
-        arreglo = []
-        while numero != 0: 
-            residuo = numero % 2
-            numero //= 2
-            arreglo.insert(0, residuo) 
+#     if not(isinstance(numero,int)) or numero <= -1:
+#         return None
+#     if numero == 0:
+#         return 0
+#     else:
+#         arreglo = []
+#         while numero != 0: 
+#             residuo = numero % 2
+#             numero //= 2
+#             arreglo.insert(0, residuo) 
         
-        return int("".join(str(i) for i in arreglo))
+#         return int("".join(str(i) for i in arreglo))
 
-print(NumeroBinario(12))
+# print(NumeroBinario(12))
 
 
 
-def NumeroBinarioFraccionario(numero_decimal):
+# def NumeroBinarioFraccionario(numero_decimal):
 
-    if not(isinstance(numero_decimal,float)) or numero_decimal < 0 or numero_decimal > 1:
-        return None
-    if numero_decimal == 0:
-        return 0
+#     if not(isinstance(numero_decimal,float)) or numero_decimal < 0 or numero_decimal > 1:
+#         return None
+#     if numero_decimal == 0:
+#         return 0
 
-    arreglo = []
-    limite_periodico = 20
-    i = 0
-    while (numero_decimal > 0) and (i < limite_periodico): 
-        arreglo.append(int(numero_decimal*2))
-        numero_decimal = numero_decimal*2 - (int(numero_decimal*2))
-        i += 1
-    numero_binario = '0,'
-    for e in arreglo:
-        numero_binario += str(e)
-    return numero_binario    
+#     arreglo = []
+#     limite_periodico = 20
+#     i = 0
+#     while (numero_decimal > 0) and (i < limite_periodico): 
+#         arreglo.append(int(numero_decimal*2))
+#         numero_decimal = numero_decimal*2 - (int(numero_decimal*2))
+#         i += 1
+#     numero_binario = '0,'
+#     for e in arreglo:
+#         numero_binario += str(e)
+#     return numero_binario    
 
-print(NumeroBinarioFraccionario(0.3125))
-print(NumeroBinarioFraccionario(1/3))
-print(NumeroBinarioFraccionario(0.2)) #cualquier multiplo de 1/5 generará periodicos en binario
+# print(NumeroBinarioFraccionario(0.3125))
+# print(NumeroBinarioFraccionario(1/3))
+# print(NumeroBinarioFraccionario(0.2)) #cualquier multiplo de 1/5 generará periodicos en binario
 
 
 def bina(num):
