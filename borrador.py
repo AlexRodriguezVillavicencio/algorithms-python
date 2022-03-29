@@ -581,52 +581,316 @@
 # print("Yo sé que no sé nada. Parte 2.".upper())
 
 
-digitos=['1111110',  	# 0
-	   '0110000',	# 1
-	   '1101101',	# 2
-	   '1111001',	# 3
-	   '0110011',	# 4
-	   '1011011',	# 5
-	   '1011111',	# 6
-	   '1110000',	# 7
-	   '1111111',	# 8
-	   '1111011',	# 9
-	   ]
+# digitos=['1111110',  	# 0
+# 	   '0110000',	# 1
+# 	   '1101101',	# 2
+# 	   '1111001',	# 3
+# 	   '0110011',	# 4
+# 	   '1011011',	# 5
+# 	   '1011111',	# 6
+# 	   '1110000',	# 7
+# 	   '1111111',	# 8
+# 	   '1111011',	# 9
+# 	   ]
 
-def printNumero(num):
-    digs = str(num)
-    lineas = [ ''  for l in range(5) ]
-    print(lineas)
-    for d in digs:
-        segs = [ [' ',' ',' '] for l in range(5) ]
-        print(segs)
-        ptrn = digitos[ord(d) - ord('0')]
-        print(ptrn[0])
-        print(ptrn[1])
-        print(ptrn[2])
-        print(ptrn[3])
-        print(ptrn[4])
-        print(ptrn[5])
-        print(ptrn[6])
+# def printNumero(num):
+#     digs = str(num)
+#     lineas = [ ''  for l in range(5) ]
+#     print(lineas)
+#     for d in digs:
+#         segs = [ [' ',' ',' '] for l in range(5) ]
+#         print(segs)
+#         ptrn = digitos[ord(d) - ord('0')]
+#         print(ptrn[0])
+#         print(ptrn[1])
+#         print(ptrn[2])
+#         print(ptrn[3])
+#         print(ptrn[4])
+#         print(ptrn[5])
+#         print(ptrn[6])
         
-        if ptrn[0] == '1':
-            segs[0][0] = segs[0][1] = segs[0][2] = '#'
-        if ptrn[1] == '1':
-            segs[0][2] = segs[1][2] = segs[2][2] = '#'
-        if ptrn[2] == '1':
-            segs[2][2] = segs[3][2] = segs[4][2] = '#'
-        if ptrn[3] == '1':
-            segs[4][0] = segs[4][1] = segs[4][2] = '#'
-        if ptrn[4] == '1':
-            segs[2][0] = segs[3][0] = segs[4][0] = '#'
-        if ptrn[5] == '1':
-            segs[0][0] = segs[1][0] = segs[2][0] = '#'
-        if ptrn[6] == '1':
-            segs[2][0] = segs[2][1] = segs[2][2] = '#'
-            for l in range(5):
-                lineas[l] += ''.join(segs[l]) + ' '
-        for l in lineas:
-            print(l)
+#         if ptrn[0] == '1':
+#             segs[0][0] = segs[0][1] = segs[0][2] = '#'
+#         if ptrn[1] == '1':
+#             segs[0][2] = segs[1][2] = segs[2][2] = '#'
+#         if ptrn[2] == '1':
+#             segs[2][2] = segs[3][2] = segs[4][2] = '#'
+#         if ptrn[3] == '1':
+#             segs[4][0] = segs[4][1] = segs[4][2] = '#'
+#         if ptrn[4] == '1':
+#             segs[2][0] = segs[3][0] = segs[4][0] = '#'
+#         if ptrn[5] == '1':
+#             segs[0][0] = segs[1][0] = segs[2][0] = '#'
+#         if ptrn[6] == '1':
+#             segs[2][0] = segs[2][1] = segs[2][2] = '#'
+#             for l in range(5):
+#                 lineas[l] += ''.join(segs[l]) + ' '
+#         for l in lineas:
+#             print(l)
 
-printNumero(int(input("Ingresa el número que deseas mostrar: ")))
+# printNumero(int(input("Ingresa el número que deseas mostrar: ")))
+
+
+'''-------------------------breve introducción a la programación de orientada 
+                            a objetos de Python ----------------------------------'''
+
+# class Cuenta:
+#     def __init__(self, nombre, direccion):
+#         self.nombre  = nombre
+#         self.direccion = direccion
+#         self.__balance = 100.00
+
+#     def retirar(self, monto):
+#         if self.__balance >= monto:
+#             self.__balance = self.__balance - monto
+#         else:
+#             print("no puedes hacer eso")
+
+# cuenta = Cuenta("Juan", "direccionase")
+# cuenta.balance = 1200.00
+# cuenta.retirar(1000)
+# print(cuenta._Cuenta__balance)
+
+# class Pila:
+#     def __init__(self):
+#         self.__listaPila = []
+
+#     def push(self, val):
+#         self.__listaPila.append(val)
+
+#     def pop(self):
+#         val = self.__listaPila[-1]
+#         del self.__listaPila[-1]
+#         return val  
+
+# class SumarPila(Pila):
+#     def __init__(self):
+#         Pila.__init__(self)
+#         self.__sum = 0
+    
+#     def getSuma(self):
+#         return self.__sum
+
+#     def push(self, val):
+#         self.__sum += val
+#         Pila.push(self, val)
+
+#     def pop(self):
+#         val = Pila.pop(self)
+#         self.__sum -= val
+#         return val
+
+# objetoPila = SumarPila()
+
+# for i in range(5):
+#     objetoPila.push(i)
+# print(objetoPila.getSuma())
+
+# for i in range(5):
+#     print(objetoPila.pop())
+
+
+'''Los objetos de Python, cuando se crean, están dotados de un pequeño 
+conjunto de propiedades y métodos predefinidos. Cada objeto los tiene, 
+los quieras o no. Uno de ellos es una variable llamada __dict__ (es un diccionario).
+
+La variable contiene los nombres y valores de todas las propiedades (variables) 
+que el objeto contiene actualmente. Vamos a usarla para presentar de forma segura 
+el contenido de un objeto. '''
+
+# class ClaseEjemplo:
+#     def __init__(self, val = 1):
+#         self.primera = val
+
+#     def setSegunda(self, val):
+#         self.segunda = val
+
+
+# objetoEjemplo1 = ClaseEjemplo()
+
+# objetoEjemplo2 = ClaseEjemplo(2)
+# objetoEjemplo2.setSegunda(3)
+
+# objetoEjemplo3 = ClaseEjemplo(4)
+# objetoEjemplo3.tercera = 5      #ha sido enriquecido sobre la marcha con una propiedad 
+#                                 #llamada tercera, fuera del código de la clase: esto es 
+#                                 # posible y totalmente permisible.
+
+# print(objetoEjemplo1.__dict__)
+# print(objetoEjemplo2.__dict__)
+# print(objetoEjemplo3.__dict__)
+
+
+
+# class ClaseEjemplo:
+#     contador = 0
+#     def __init__(self, val = 1):
+#         self.__primera = val
+#         ClaseEjemplo.contador += 1
+
+# objetoEjemplo1 = ClaseEjemplo()
+# objetoEjemplo2 = ClaseEjemplo(2)
+# objetoEjemplo3 = ClaseEjemplo(4)
+
+
+# print(objetoEjemplo1.__dict__, objetoEjemplo1.contador)
+# print(objetoEjemplo2.__dict__, objetoEjemplo2.contador)
+# print(objetoEjemplo3.__dict__, objetoEjemplo3.contador)
+
+'''--------------------------vida interna de clases y objetos--------------------------'''
+'''el atributo __name__ está ausente del objeto - existe solo dentro de las clases.'''
+
+# class conClase:
+#     pass
+
+# print(conClase.__name__)
+# obj = conClase()
+# print(type(obj).__name__)
+
+'''__bases__ es una tupla. La tupla contiene clases (no nombres de clases) 
+que son superclases directas para la clase.
+solo las clases tienen este atributo - los objetos no.'''
+
+# class SuperUno:
+#     pass
+
+# class SuperDos:
+#     pass
+
+# class Sub(SuperUno, SuperDos):
+#     pass
+
+
+# def printBases(cls):
+#     print('( ', end='')
+
+#     for x in cls.__bases__:
+#         print(x.__name__, end=' ')
+#     print(')')
+
+
+# printBases(SuperUno)
+# printBases(SuperDos)
+# printBases(Sub)
+# print(Sub.__base__)
+
+
+def NumeroBinario(numero):
+
+    if not(isinstance(numero,int)) or numero <= -1:
+        return None
+    if numero == 0:
+        return 0
+    else:
+        arreglo = []
+        while numero != 0: 
+            residuo = numero % 2
+            numero //= 2
+            arreglo.insert(0, residuo) 
+        
+        return int("".join(str(i) for i in arreglo))
+
+print(NumeroBinario(12))
+
+
+
+def NumeroBinarioFraccionario(numero_decimal):
+
+    if not(isinstance(numero_decimal,float)) or numero_decimal < 0 or numero_decimal > 1:
+        return None
+    if numero_decimal == 0:
+        return 0
+
+    arreglo = []
+    limite_periodico = 20
+    i = 0
+    while (numero_decimal > 0) and (i < limite_periodico): 
+        arreglo.append(int(numero_decimal*2))
+        numero_decimal = numero_decimal*2 - (int(numero_decimal*2))
+        i += 1
+    numero_binario = '0,'
+    for e in arreglo:
+        numero_binario += str(e)
+    return numero_binario    
+
+print(NumeroBinarioFraccionario(0.3125))
+print(NumeroBinarioFraccionario(1/3))
+print(NumeroBinarioFraccionario(0.2)) #cualquier multiplo de 1/5 generará periodicos en binario
+
+
+def bina(num):
+    if num > 0:
+        bina(num // 2)
+    print(num %2, end ='')
+
+bina(12)
+
+# class Pila:
+#     def __init__(self):
+#         self.__listaPila = []
+#         self.numero = 0
+
+#     def push(self):
+#         while self.numero != 0: 
+#             residuo = self.numero % 2
+#             cociente = self.numero // 2
+#             self.__listaPila.append(residuo) 
+#             self.numero = cociente
+        
+#     # def pop(self):
+#     #     self.__listaPila = self.__listaPila[-1]
+#     #     del self.__listaPila[-1]
+#     #     return self.__listaPila 
+
+#     def convertirBinario(self, numero):
+#         if not(isinstance(numero,int)) or numero <= -1:
+#             resultado = None
+#         else:
+#             resultado = Pila.push()
+
+#         return resultado
+
+# obj = Pila(12)
+# print(obj.convertirBinario(12))
+
+
+# class Pila:
+#     def __init__(self):
+#         self.__listaPila = []
+
+#     def push(self, val):
+#         self.__listaPila.append(val)
+
+#     def pop(self):
+#         val = self.__listaPila[-1]
+#         del self.__listaPila[-1]
+#         return val  
+
+# class SumarPila(Pila):
+#     def __init__(self):
+#         Pila.__init__(self)
+#         self.__sum = 0
+
+
+#     def getSuma(self):
+#         return self.__sum
+
+#     def push(self, val):
+#         self.__sum += val
+#         Pila.push(self, val)
+
+#     def pop(self):
+#         val = Pila.pop(self)
+#         self.__sum -= val
+#         return val
+
+
+# objetoPila = SumarPila()
+
+# for i in range(5):
+#     objetoPila.push(i)
+# print(objetoPila.getSuma())
+
+# for i in range(5):
+#     print(objetoPila.pop())
 
