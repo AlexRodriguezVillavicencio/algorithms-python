@@ -742,7 +742,6 @@ el contenido de un objeto. '''
 
 # class conClase:
 #     pass
-
 # print(conClase.__name__)
 # obj = conClase()
 # print(type(obj).__name__)
@@ -753,26 +752,140 @@ solo las clases tienen este atributo - los objetos no.'''
 
 # class SuperUno:
 #     pass
-
 # class SuperDos:
 #     pass
-
 # class Sub(SuperUno, SuperDos):
 #     pass
 
-
 # def printBases(cls):
 #     print('( ', end='')
-
 #     for x in cls.__bases__:
 #         print(x.__name__, end=' ')
 #     print(')')
-
-
 # printBases(SuperUno)
 # printBases(SuperDos)
 # printBases(Sub)
 # print(Sub.__base__)
+
+
+'''----------------------------ejemplos de herencia de clases---------------------'''
+# class Super:
+#     def __init__(self, nombre):
+#         self.nombre = nombre
+#     def __str__(self):
+#         return "Mi nombre es " + self.nombre + "."
+# class Sub(Super):
+#     def __init__(self, nombre):
+#         Super().__init__(self, nombre)
+# obj = Sub("Andy")
+# print(obj)
+
+'''con variables de instancia'''
+# class Super:
+#     supVar = 1
+# class Sub(Super):
+#     subVar = 2
+# obj = Sub()
+# print(obj.supVar)
+# print(obj.subVar)
+
+'''con constructores'''
+# class Nivel1:
+#     varia1 = 100
+#     def __init__(self):
+#         self.var1 = 101
+#     def fun1(self):
+#         return 102
+
+# class Nivel2(Nivel1):
+#     varia2 = 200
+#     def __init__(self):
+#         super().__init__()
+#         self.var2 = 201    
+#     def fun2(self):
+#         return 202
+
+# class Nivel3(Nivel2):
+#     varia3 = 300
+#     def __init__(self):
+#         super().__init__()
+#         self.var3 = 301
+#     def fun3(self):
+#         return 302
+
+# obj = Nivel3()
+# print(obj.varia1, obj.var1, obj.fun1())
+# print(obj.varia2, obj.var2, obj.fun2())
+# print(obj.varia3, obj.var3, obj.fun3())
+
+'''herencia multiple'''
+# class SuperA:
+#     varA = 10
+#     def funA(self):
+#         return 11
+# class SuperB:
+#     varB = 20
+#     def funB(self):
+#         return 21
+
+# class Sub(SuperA, SuperB):
+#     pass
+# obj = Sub()
+# print(obj.varA, obj.funA())
+# print(obj.varB, obj.funB())
+
+'''------------------------------composición------------------------------------------'''
+
+'''la subclase puede modificar el comportamiento de su superclase (como en el ejemplo) 
+se llama polimorfismo. El método, redefinido en cualquiera de las superclases, que cambia 
+el comportamiento de la superclase, se llama virtual. En otras palabras, ninguna clase se 
+da por hecho. El comportamiento de cada clase puede ser modificado en cualquier 
+momento por cualquiera de sus subclases. '''
+
+# class Uno:
+#     def hazlo(self):
+#         print("hazlo de Uno")
+#     def haz_algo(self):
+#         self.hazlo()
+# class Dos(Uno):
+#     def hazlo(self):
+#         print("hazlo de Dos")
+# uno = Uno()
+# dos = Dos()
+# uno.haz_algo()
+# dos.haz_algo()
+
+'''Las subclases implementaron esta capacidad mediante la introducción de mecanismos especializados. 
+Hagamos (casi) lo mismo, pero usando composición. La clase, como en el ejemplo anterior, sabe cómo 
+girar el vehículo, pero el giro real lo realiza un objeto especializado almacenado en una propiedad 
+llamada controlador. El controlador es capaz de controlar el vehículo manipulando las partes relevantes 
+del vehículo'''
+
+# import time
+
+# class Pistas:
+#     def cambiardireccion(self, izquierda, on):
+#         print("pistas: ", izquierda, on)
+
+# class Ruedas:
+#     def cambiardireccion(self, izquierda, on):
+#         print("ruedas: ", izquierda, on)
+
+# class Vehiculo:
+#     def __init__(self, controlador):
+#         self.controlador = controlador
+
+#     def girar(self, izquierda):
+#         self.controlador.cambiardireccion(izquierda, True)
+#         time.sleep(0.25)
+#         self.controlador.cambiardireccion(izquierda, False)
+
+# conRuedas = Vehiculo(Ruedas())
+# conPistas = Vehiculo(Pistas())
+
+# conRuedas.girar(True)
+# conPistas.girar(False)
+
 
 
 # def NumeroBinario(numero):
@@ -818,40 +931,40 @@ solo las clases tienen este atributo - los objetos no.'''
 # print(NumeroBinarioFraccionario(0.2)) #cualquier multiplo de 1/5 generará periodicos en binario
 
 
-def bina(num):
-    if num > 0:
-        bina(num // 2)
-    print(num %2, end ='')
+# def bina(num):
+#     if num > 0:
+#         bina(num // 2)
+#     print(num %2, end ='')
 
-bina(12)
+# bina(12)
 
-# class Pila:
-#     def __init__(self):
-#         self.__listaPila = []
-#         self.numero = 0
+class Pila:
+    def __init__(self):
+        self.__listaPila = []
 
-#     def push(self):
-#         while self.numero != 0: 
-#             residuo = self.numero % 2
-#             cociente = self.numero // 2
-#             self.__listaPila.append(residuo) 
-#             self.numero = cociente
+    def push(self, numero):
+        while numero != 0: 
+            residuo = numero % 2
+            cociente = numero // 2
+            self.__listaPila.append(residuo) 
+            numero = cociente
         
-#     # def pop(self):
-#     #     self.__listaPila = self.__listaPila[-1]
-#     #     del self.__listaPila[-1]
-#     #     return self.__listaPila 
+    def pop(self):
+        p = self.__listaPila[-1]
+        del self.__listaPila[-1]
+        return p
 
-#     def convertirBinario(self, numero):
-#         if not(isinstance(numero,int)) or numero <= -1:
-#             resultado = None
-#         else:
-#             resultado = Pila.push()
+    def convertirBinario(self, numero):
+        if not(isinstance(numero,int)) or numero <= -1:
+            return None
+        else:
+            self.push(numero)
+            self.pop()
 
-#         return resultado
 
-# obj = Pila(12)
-# print(obj.convertirBinario(12))
+
+obj = Pila()
+print(obj.convertirBinario(12))
 
 
 # class Pila:
