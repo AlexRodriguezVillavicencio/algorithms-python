@@ -886,124 +886,125 @@ del vehículo'''
 # conRuedas.girar(True)
 # conPistas.girar(False)
 
+'''--------------------------arbol de excepciones-----------------'''
+'''Este programa muestra todas las clases de las excepciónes predefinidas en forma de árbol.'''
+
+# def printExcTree(thisclass, nest = 0):
+#     if nest > 1:
+#         print("   |" * (nest - 1), end="")
+#     if nest > 0:
+#         print("   +---", end="")
+
+#     print(thisclass.__name__)
+
+#     for subclass in thisclass.__subclasses__():
+#         printExcTree(subclass, nest + 1)
+
+# printExcTree(BaseException)
+
+'''--------------------------generador vs comprensión de listas-------------------------------'''
+# import sys
+# from timeit import timeit
+
+# #para calcular la memoria que ocupan 
+# print(sys.getsizeof([i for i in range(1000)]))   #9024
+# print(sys.getsizeof((i for i in range(1000))))   #120
+
+# #para calcular el tiempo de ejecución
+# print(timeit('[i for i in range(1000)]'))   #26.7588419
+# print(timeit('(i for i in range(1000))'))   #0.5092601999999999
+
+'''---------------------la función lambda, filter y map--------------------------------'''
+# def imprimirfuncion(args, fun):
+# 	for x in args:
+# 		print('f(', x,')=', fun(x), sep='')
+# imprimirfuncion([x for x in range(-2, 3)], lambda x: 2 * x**2 - 4 * x + 2)
+
+# lista1 = [x for x in range(5)]
+# lista2 = list(map(lambda x: 2 ** x, lista1))
+# print(lista2)
+# for x in map(lambda x: x * x, lista2):
+# 	print(x, end=' ')
+# print()
+
+# from random import seed, randint
+# seed()
+# data = [ randint(-10,10) for x in range(5) ]
+# filtered = list(filter(lambda x: x > 0 and x % 2 == 0, data))
+# print(data)
+# print(filtered)
 
 
-# def NumeroBinario(numero):
+'''----------------------------cierres------------------------'''
+# def crearcierre(par):
+# 	loc = par
+# 	def potencia(p):
+# 		return p ** loc
+# 	return potencia
 
-#     if not(isinstance(numero,int)) or numero <= -1:
-#         return None
-#     if numero == 0:
-#         return 0
-#     else:
-#         arreglo = []
-#         while numero != 0: 
-#             residuo = numero % 2
-#             numero //= 2
-#             arreglo.insert(0, residuo) 
-        
-#         return int("".join(str(i) for i in arreglo))
-
-# print(NumeroBinario(12))
-
-
-
-# def NumeroBinarioFraccionario(numero_decimal):
-
-#     if not(isinstance(numero_decimal,float)) or numero_decimal < 0 or numero_decimal > 1:
-#         return None
-#     if numero_decimal == 0:
-#         return 0
-
-#     arreglo = []
-#     limite_periodico = 20
-#     i = 0
-#     while (numero_decimal > 0) and (i < limite_periodico): 
-#         arreglo.append(int(numero_decimal*2))
-#         numero_decimal = numero_decimal*2 - (int(numero_decimal*2))
-#         i += 1
-#     numero_binario = '0,'
-#     for e in arreglo:
-#         numero_binario += str(e)
-#     return numero_binario    
-
-# print(NumeroBinarioFraccionario(0.3125))
-# print(NumeroBinarioFraccionario(1/3))
-# print(NumeroBinarioFraccionario(0.2)) #cualquier multiplo de 1/5 generará periodicos en binario
-
-
-# def bina(num):
-#     if num > 0:
-#         bina(num // 2)
-#     print(num %2, end ='')
-
-# bina(12)
-
-class Pila:
-    def __init__(self):
-        self.__listaPila = []
-
-    def push(self, numero):
-        while numero != 0: 
-            residuo = numero % 2
-            cociente = numero // 2
-            self.__listaPila.append(residuo) 
-            numero = cociente
-        
-    def pop(self):
-        p = self.__listaPila[-1]
-        del self.__listaPila[-1]
-        return p
-
-    def convertirBinario(self, numero):
-        if not(isinstance(numero,int)) or numero <= -1:
-            return None
-        else:
-            self.push(numero)
-            self.pop()
-
-
-
-obj = Pila()
-print(obj.convertirBinario(12))
-
-
-# class Pila:
-#     def __init__(self):
-#         self.__listaPila = []
-
-#     def push(self, val):
-#         self.__listaPila.append(val)
-
-#     def pop(self):
-#         val = self.__listaPila[-1]
-#         del self.__listaPila[-1]
-#         return val  
-
-# class SumarPila(Pila):
-#     def __init__(self):
-#         Pila.__init__(self)
-#         self.__sum = 0
-
-
-#     def getSuma(self):
-#         return self.__sum
-
-#     def push(self, val):
-#         self.__sum += val
-#         Pila.push(self, val)
-
-#     def pop(self):
-#         val = Pila.pop(self)
-#         self.__sum -= val
-#         return val
-
-
-# objetoPila = SumarPila()
-
+# fsqr = crearcierre(2)
+# fcub = crearcierre(3)
 # for i in range(5):
-#     objetoPila.push(i)
-# print(objetoPila.getSuma())
+# 	print(i, fsqr(i), fcub(i))
 
-# for i in range(5):
-#     print(objetoPila.pop())
+
+# import sys
+
+# sys.stdout.write("Dame un número:")
+# sys.stdout.flush()
+# n = sys.stdin.readline()
+
+
+''''-----------------------lectura de archivos-------------------'''
+# from os import strerror
+# data = bytearray(10)
+# for i in range(len(data)):
+#     data[i] = 10 + i
+# try:
+#     bf = open('file.bin', 'wb')
+#     bf.write(data)
+#     bf.close()
+# except IOError as e:
+#     print("Se produjo un error de E/S: ", strerror(e.errno))
+
+
+
+# from os import strerror
+# srcname = input("¿Nombre del archivo fuente?: ")
+# try:
+#     src = open(srcname, 'rb')
+# except IOError as e:
+#     print("No se puede abrir archivo fuente: ", strerror(e.errno))
+#     exit(e.errno)	
+# dstname = input("¿Nombre del archivo de destino?: ")
+# try:
+#     dst = open(dstname, 'wb')
+# except Exception as e:
+#     print("No se puede crear el archivo de destino: ", strerror(e.errno))
+#     src.close()
+#     exit(e.errno)	
+# buffer = bytearray(65536)
+# total  = 0
+# try:
+#     readin = src.readinto(buffer)
+#     while readin > 0:
+#         written = dst.write(buffer[:readin])
+#         total += written
+#         readin = src.readinto(buffer)
+# except IOError as e:
+#     print("No se puede crear el archivo de destino: ", strerror(e.errno))
+#     exit(e.errno)	 
+# print(total,'byte(s) escritos con éxito')
+# src.close()
+# dst.close()
+
+
+# from os import strerror
+# try:
+# 	fo = open('newtext.txt', 'wt')
+# 	for i in range(10):
+# 		fo.write("line #" + str(i+1) + "\n")
+# 	fo.close()
+# except IOError as e:
+# 	print("Se produjo un error de E/S: ", strerror(e.errno))
 
