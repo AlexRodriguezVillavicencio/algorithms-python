@@ -12,8 +12,8 @@ def to_jaden_case(string):
     string = string.split()
     newList = []
     for e in string:
-        list = e[0].upper() +e[1:]       
-        newList.append(list)
+        lista = e[0].upper() +e[1:]       
+        newList.append(lista)
         x = " ".join(newList)
     return(print(x)) 
 
